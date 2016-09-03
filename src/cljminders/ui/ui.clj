@@ -6,7 +6,7 @@
 	(def id (get reminder :id))
 	(def description (get reminder :description))
 	(def time (get reminder :time))
-	(println id " | " time " | " description)
+	(println id " |" time description)
 )
 
 (defn getReminderFieldsFromInput []
@@ -25,8 +25,8 @@
 )
 
 (defn showReminders [] 
-	(println "\n#  | Time  | Description") 
-  	(printReminder (first (operations/selectReminders)))
+	(println "\n#  |") 
+	(doseq [reminder (operations/selectReminders)] (printReminder reminder))
 	(println "\n")
 )
 
