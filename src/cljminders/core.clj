@@ -1,7 +1,9 @@
 (ns cljminders.core
+  (:require [cljminders.db.dbConnection :as db])
   (:gen-class))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Print intro screen, starting point of execution"
   [& args]
-  (println "Hello, World!"))
+  (println "Welcome to cljminders!")
+)
