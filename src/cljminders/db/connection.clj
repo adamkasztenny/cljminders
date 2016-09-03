@@ -3,13 +3,14 @@
 (use 'korma.db)
 (use 'korma.core)
 
+(declare reminders)
+
 (defdb db (sqlite3 {:db ".cljminders.db"}))
 
 (defentity reminders
-    (pk :id) 
     (table :reminders)
     (database db)
-    (entity-fields :description :time)
+    (entity-fields :id :description :time)
 )
 
 (def createReminders (str "
