@@ -1,11 +1,10 @@
 (ns cljminders.core
-  (:require [cljminders.db.operations :as operations])
+  (:require [cljminders.ui.ui :as ui])
   (:gen-class))
 
 (defn -main
   "Print intro screen, starting point of execution"
   [& args]
   (println "\nWelcome to cljminders!")
-  (def rems (operations/selectReminders))
-  (println rems)
+  (ui/prompt)
 )
