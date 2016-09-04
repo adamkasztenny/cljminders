@@ -4,10 +4,8 @@ Simple "Hello World" Clojure app to keep track of reminders. Uses [Korma](https:
 
 ## Installation
 
-lein uberjar
+```lein uberjar```
 
 ## Usage
 
-```
-    $ java -jar cljminders-0.1.0-standalone.jar
-```
+``` java -jar cljminders-0.1.0-standalone.jar```
