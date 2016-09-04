@@ -1,19 +1,13 @@
 # cljminders
 
-Simple "Hello World" clojure app to keep track of reminders.
+Simple "Hello World" Clojure app to keep track of reminders.
 
 ## Installation
 
-Download from http://example.com/FIXME.
+lein uberjar
 
 ## Usage
 
-FIXME: explanation
-
 ```
-    $ java -jar cljminders-0.1.0-standalone.jar [args]
+    $ java -jar cljminders-0.1.0-standalone.jar
 ```
-
-## Options
-
-FIXME: listing of options this app accepts.
