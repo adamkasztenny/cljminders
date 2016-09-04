@@ -1,6 +1,6 @@
 # cljminders
 
-Simple "Hello World" Clojure app to keep track of reminders.
+Simple "Hello World" Clojure app to keep track of reminders. Uses [Korma](https://github.com/korma/Korma) and [SQLite](https://github.com/xerial/sqlite-jdbc).
 
 ## Installation
 
