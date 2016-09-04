@@ -6,5 +6,6 @@
 	"Print intro screen, starting point of execution"
   	[& args]
   	(println "\nWelcome to cljminders!")
+	(println "\nWhat would you like to do?")
   	(ui/prompt)
 )

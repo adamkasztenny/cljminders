@@ -2,19 +2,17 @@
   (:require [cljminders.db.operations :as operations])
   (:gen-class))
 
-(defn printReminder [reminder] 
-	(def id (get reminder :id))
-	(def description (get reminder :description))
-	(def time (get reminder :time))
-	(println id " |" time description)
-)
-
 (defn getReminderFieldsFromInput []
 	(println "Description of reminder: ")
 	(def description (read-line))
 	(println "Time (in valid format, e.g. 2016-01-01 17:05): ")
 	(def time (read-line))
 	{:description description :time time}
+)
+
+(defn promptForReminderId [operation]
+	(println "Which reminder do you want to " operation "(enter the number)?" )
+	(read-line)
 )
 
 (defn createNewReminder [] 
@@ -25,25 +23,36 @@
 )
 
 (defn showReminders [] 
-	(println "\n#  |") 
-	(doseq [reminder (operations/selectReminders)] (printReminder reminder))
-	(println "\n")
+	(println "\n#   |") 
+	(doseq [reminder (operations/selectReminders)] (operations/printReminder reminder))
+	true
+)
+
+(defn updateReminder [] 
+	(def id (promptForReminderId "update"))
+	(def descriptionAndTime (getReminderFieldsFromInput))
+	(def reminder (merge descriptionAndTime {:id id}))
+	(operations/updateReminder reminder id)
+)
+
+(defn deleteReminder [] 
+	(def id (promptForReminderId "delete"))
+	(operations/deleteReminder id)
 )
 
 (defn runOperationBasedOnInput [input] 
 	(case input
 		"1" (createNewReminder)
 		"2" (showReminders)  
-		"3" (println "update") 
-		"4" (println "delete") 
+		"3" (updateReminder) 
+		"4" (deleteReminder) 
 		false
 	)
 )
 
 (defn prompt []
 	(loop []
-		(println "\nWhat would you like to do?")
-		(println "1. Create new reminder")
+		(println "\n1. Create new reminder")
 		(println "2. Show all reminders")
 		(println "3. Update existing reminder")
 		(println "4. Delete reminder")
