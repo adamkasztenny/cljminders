@@ -11,7 +11,7 @@
 )
 
 (defn promptForReminderId [operation]
-	(println "Which reminder do you want to " operation "(enter the number)?" )
+	(println "Which reminder do you want to" operation "(enter the number)?" )
 	(read-line)
 )
 

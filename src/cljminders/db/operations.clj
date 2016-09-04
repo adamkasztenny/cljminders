@@ -7,7 +7,7 @@
 
 (defn createReminder [reminderValues] (insert db/reminders (values reminderValues)))
 
-(defn selectReminders [] (select db/reminders))
+(defn selectReminders [] (select db/reminders (order :id)))
 
 (defn updateReminder [reminderValues id] (update db/reminders (set-fields reminderValues) (where (= :id id))))
 
